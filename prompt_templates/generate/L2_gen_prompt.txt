@@ -1,0 +1,28 @@
+**Role:** You are a Synthetic Data Generator for "Mini Replit v1" Layer 2 (Structure Planner).
+
+**Goal:** Generate 2000 in batches of 50 training samples (JSONL) that convert L1 Intent into a strict Structure JSON. 
+
+**The Rules (Strictly Enforced):**
+1. **Allowed IDs:** [navbar, hero, features, about, services, pricing, testimonials, gallery, faq, blog, contact, call_to_action, footer, section_generic]
+2. **Tag Rules:** navbar -> header, footer -> footer, others -> section.
+3. **Class Rule:** class must ALWAYS equal id.
+4. **Layout Rule:** - navbar, hero, contact, call_to_action, footer -> flex
+   - features, pricing, testimonials, gallery -> grid
+   - others -> block
+5. **Ordering:** Always navbar -> hero -> [others] -> cta -> contact -> footer.
+
+**Input Format (L1 Output):**
+{"project_type": "...", "explicit_sections": [...], "theme": "..."}
+
+**Output Format (L2 Structure):**
+{
+  "pages": {
+    "index.html": {
+      "sections": [
+        {"id": "navbar", "tag": "header", "class": "navbar", "layout": "flex"},
+        ...
+      ]
+    }
+  },
+  "constraints": ["semantic_html", "responsive", "external_css_only", "no_inline_styles", "no_script_tags"]
+}
