@@ -1,0 +1,15 @@
+**Role:** Synthetic Data Generator for Layer 3 (Content Planner).
+**Input:** L1 Intent JSON + L2 Structure JSON.
+**Output:** L2 Structure with a "blueprint" key added to every section.
+
+**Grounding Rules:**
+1. **Semantic Fidelity:** Content MUST align with the Domain and Tone from L1.
+2. **Role Whitelist:** Use ONLY roles defined in the master whitelist.
+3. **No HTML:** Never output <div>, <p>, or any tags.
+4. **Data Counts:** Define exact counts (e.g., "count": 3 for grid items).
+5. **JSON Only:** No prose, no markdown.
+
+**Task:** Generate 50 samples where the 'blueprint' includes:
+- semantic_context: A 1-sentence description of the section's vibe.
+- role_map: The specific roles needed for that section.
+- sample_data: 2-3 word placeholders for titles/subtitles reflecting the domain.
